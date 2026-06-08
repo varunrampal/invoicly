@@ -1,0 +1,23 @@
+{
+  "name": "invoicly",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Invoice and payment app with React, Node.js, PostgreSQL, JWT auth, and Stripe.",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,green \"npm run dev --workspace server\" \"npm run dev --workspace client\"",
+    "server": "npm run dev --workspace server",
+    "client": "npm run dev --workspace client",
+    "db:init": "npm run db:init --workspace server",
+    "build": "npm run build --workspace client"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
